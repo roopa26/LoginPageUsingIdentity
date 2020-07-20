@@ -1,0 +1,25 @@
+﻿@model LoginPage.ViewModel.LoginViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@using(Html.BeginForm("LoginPage","Login",FormMethod.Post,new { @class = "form-vertical"}))
+{
+<div class="form-group">
+    @Html.Label("User Name:")
+    @Html.TextBoxFor(m=>m.UserName,new { @class = "form-control"})
+    @Html.ValidationMessageFor(m=>m.UserName)
+</div>
+<div class="form-group">
+    @Html.Label("Password:")
+    @Html.PasswordFor(m=>m.Password, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m=>m.Password)
+</div>
+<div>
+    <button type="submit" class="btn btn-default">Login</button>
+    <button type="reset" class="btn btn-default">Reset</button>
+</div>
+@Html.ValidationSummary();
+}
+
